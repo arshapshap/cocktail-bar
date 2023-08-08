@@ -12,7 +12,6 @@
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_100"
         android:importantForAccessibility="no"
         android:scaleType="centerInside"
         android:src="@drawable/img_summer_holidays" />
@@ -22,7 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="30dp"
+        android:padding="4dp"
+        android:background="@drawable/shape_translucent"
         android:textAppearance="@style/Text.OnCard"
         tools:text="Pink Limonade" />
 
