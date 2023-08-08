@@ -40,7 +40,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
         requireContext().appComponent().inject(this)
     }
 
-    override fun initViews() { }
+    override fun initViews() {
+        binding.editButton.setOnClickListener {
+            viewModel.editCocktail()
+        }
+    }
 
     override fun subscribe() {
         with (viewModel) {
@@ -85,10 +89,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
                     recipeSubtitleTextView.isGone = it.recipe.isBlank()
                     recipeTextView.isGone = it.recipe.isBlank()
                     recipeTextView.text = it.recipe
-
-                    editButton.setOnClickListener {
-                        // TODO: переход на страницу редактирования
-                    }
                 }
             }
 

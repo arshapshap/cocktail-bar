@@ -19,11 +19,19 @@ class Navigator : MainRouter {
         }
     }
 
-    override fun closeCurrentFragment() {
-        navController?.popBackStack()
-    }
-
     override fun openCocktailDetails(id: Long) {
         navController?.navigate(R.id.action_listFragment_to_detailsFragment, DetailsFragment.createBundle(id))
+    }
+
+    override fun openCocktailEditing(id: Long) {
+        navController?.navigate(R.id.action_detailsFragment_to_editingFragment, DetailsFragment.createBundle(id))
+    }
+
+    override fun openCocktailCreating() {
+        navController?.navigate(R.id.action_listFragment_to_editingFragment)
+    }
+
+    override fun closeCurrentFragment() {
+        navController?.popBackStack()
     }
 }

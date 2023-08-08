@@ -46,12 +46,16 @@ class DetailsScreenViewModel @AssistedInject constructor(
             }
 
             _isLoading.postValue(false)
-            _cocktail.postValue(loadedCocktail)
+            _cocktail.postValue(loadedCocktail!!)
         }
     }
 
     fun closeFragment() {
         router.closeCurrentFragment()
+    }
+
+    fun editCocktail() {
+        router.openCocktailEditing(cocktailId!!)
     }
 
     @AssistedFactory

@@ -24,6 +24,9 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
             cocktailsRecyclerView.adapter = CocktailsAdapter() {
                 viewModel.openCocktailDetails(it)
             }
+            addButton.setOnClickListener {
+                viewModel.createCocktail()
+            }
         }
     }
 
