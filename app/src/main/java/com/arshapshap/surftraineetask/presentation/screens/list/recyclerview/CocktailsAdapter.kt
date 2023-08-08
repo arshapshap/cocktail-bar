@@ -12,26 +12,6 @@ class CocktailsAdapter(
     private val onItemClick: (Long) -> Unit
 ) : RecyclerView.Adapter<CocktailsAdapter.ViewHolder>() {
 
-    class ViewHolder(
-        val binding: ItemCocktailCardBinding,
-        val onClick: (Long) -> Unit
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun onBind(cocktail: Cocktail) {
-            with (binding) {
-                if (cocktail.image.isNotBlank()) {
-                    // TODO: Загружать картинку (в зависимости от того, как буду хранить)
-                }
-
-                nameTextView.text = cocktail.name
-
-                root.setOnClickListener {
-                    onClick.invoke(cocktail.id)
-                }
-            }
-        }
-    }
-
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list: List<Cocktail>) {
         this.list = list
@@ -58,4 +38,24 @@ class CocktailsAdapter(
 
     private fun getBinding(parent: ViewGroup): ItemCocktailCardBinding =
         ItemCocktailCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+    class ViewHolder(
+        private val binding: ItemCocktailCardBinding,
+        private val onClick: (Long) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun onBind(cocktail: Cocktail) {
+            with (binding) {
+                if (cocktail.image.isNotBlank()) {
+                    // TODO: Загружать картинку (в зависимости от того, как буду хранить)
+                }
+
+                nameTextView.text = cocktail.name
+
+                root.setOnClickListener {
+                    onClick.invoke(cocktail.id)
+                }
+            }
+        }
+    }
 }
