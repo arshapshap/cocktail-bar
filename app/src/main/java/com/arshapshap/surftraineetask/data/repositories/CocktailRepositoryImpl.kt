@@ -26,4 +26,8 @@ class CocktailRepositoryImpl @Inject constructor(
     override suspend fun updateCocktail(cocktail: Cocktail) {
         localSource.update(mapper.mapToEntity(cocktail))
     }
+
+    override suspend fun deleteCocktailById(id: Long) {
+        localSource.deleteById(id)
+    }
 }

@@ -30,4 +30,7 @@
     <string name="add_at_least_one_ingredient">Add at least one ingredient</string>
     <string name="ingredient">Ingredient</string>
     <string name="add">Add</string>
+    <string name="confirm_deletion">Confirm the deletion</string>
+    <string name="deletion_confirm">Are you sure you want to delete this recipe?</string>
+    <string name="delete">Delete</string>
 </resources>

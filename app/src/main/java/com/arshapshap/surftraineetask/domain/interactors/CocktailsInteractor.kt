@@ -25,4 +25,8 @@ class CocktailsInteractor @Inject constructor(
     suspend fun updateCocktail(cocktail: Cocktail) {
         repository.updateCocktail(cocktail)
     }
+
+    suspend fun deleteCocktailById(id: Long) {
+        repository.deleteCocktailById(id)
+    }
 }

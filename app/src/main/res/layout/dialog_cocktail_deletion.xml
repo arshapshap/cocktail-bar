@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="330dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_radius54"
+    android:backgroundTint="@color/white"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/dialog_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_deletion"
+        android:textAppearance="@style/Text.Subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/deletion_confirm_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Text.Normal"
+        android:text="@string/deletion_confirm"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ripple_button"
+        android:backgroundTint="?attr/colorError"
+        android:text="@string/delete"
+        android:textAppearance="@style/Text.OnButton"
+        app:layout_constraintTop_toBottomOf="@id/deletion_confirm_text_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ripple_button_outlined"
+        android:text="@string/cancel"
+        android:textAppearance="@style/Text.OnButton"
+        android:textColor="?attr/colorSecondary"
+        app:layout_constraintTop_toBottomOf="@id/delete_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
