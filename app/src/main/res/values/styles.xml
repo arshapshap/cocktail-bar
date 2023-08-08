@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Text">
-        <item name="android:textColor">@color/gray_700</item>
+        <item name="android:textColor">@color/gray_800</item>
         <item name="android:fontFamily">@font/didact_gothic</item>
     </style>
 

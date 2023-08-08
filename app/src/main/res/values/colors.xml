@@ -11,6 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#4B97FF</color>
     <color name="gray_100">#EEEEEE</color>
-    <color name="gray_200">#79747E</color>
-    <color name="gray_700">#313131</color>
+    <color name="gray_200">#CAC4D0</color>
+    <color name="gray_500">#79747E</color>
+    <color name="gray_800">#313131</color>
 </resources>

@@ -13,7 +13,18 @@
     <string name="no_cocktails">No cocktails</string>
 
     <!-- Details Fragment -->
-    <string name="recipe">Recipe:</string>
+    <string name="recipe_with_colon">Recipe:</string>
     <string name="edit">Edit</string>
     <string name="cocktail_not_found">Cocktail not found</string>
+
+    <!-- Editing Fragment -->
+    <string name="title">Title</string>
+    <string name="add_title">Add title</string>
+    <string name="optional_field">Optional field</string>
+    <string name="description">Description</string>
+    <string name="recipe">Recipe</string>
+    <string name="load_image">Load image</string>
+    <string name="save">Save</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="delete_ingredient">Delete ingredient</string>
 </resources>
