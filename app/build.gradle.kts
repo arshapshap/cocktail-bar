@@ -35,6 +35,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -47,6 +52,9 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.bundles.navigation)
+
+    implementation(libs.bundles.room)
+    kapt(libs.bundles.room.kapt)
 
     implementation(libs.bundles.dagger)
     kapt(libs.bundles.dagger.kapt)

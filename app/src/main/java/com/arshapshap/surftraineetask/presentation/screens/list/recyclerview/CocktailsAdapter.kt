@@ -18,7 +18,7 @@ class CocktailsAdapter(
         fun onBind(cocktail: Cocktail) {
             with (binding) {
                 nameTextView.text = cocktail.name
-                if (cocktail.image != null) {
+                if (cocktail.image.isNotBlank()) {
                     // TODO: Загружать картинку (в зависимости от того, как буду хранить)
                 }
             }
