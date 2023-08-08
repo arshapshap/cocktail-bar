@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Surf Trainee Task</string>
+    <string name="app_name">Cocktail Bar</string>
 
     <!-- Common -->
     <string name="ok">OK</string>
@@ -11,6 +11,7 @@
     <string name="my_cocktails">My cocktails</string>
     <string name="add_first_cocktail">Add your first cocktail here</string>
     <string name="no_cocktails">No cocktails</string>
+    <string name="share_message">See what cocktails I created in the Cocktail Bar app!\n%1$s and others\nDo you want to try it?</string>
 
     <!-- Details Fragment -->
     <string name="recipe_with_colon">Recipe:</string>
@@ -33,4 +34,5 @@
     <string name="confirm_deletion">Confirm the deletion</string>
     <string name="deletion_confirm">Are you sure you want to delete this recipe?</string>
     <string name="delete">Delete</string>
+    <string name="share_cocktails">Share cocktails</string>
 </resources>

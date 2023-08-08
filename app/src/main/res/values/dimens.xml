@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- List Fragment -->
     <dimen name="fab_size">80dp</dimen>
     <dimen name="no_cocktails_placeholder_size">283dp</dimen>
-    <dimen name="load_image_placeholder_size">200dp</dimen>
     <dimen name="cocktail_card_size">160dp</dimen>
+
     <dimen name="bottomappbar_corners_radius">80dp</dimen>
     <dimen name="bottomappbar_height">62dp</dimen>
+
+    <dimen name="corner_button_size">32dp</dimen>
+    <dimen name="corner_button_margin">8dp</dimen>
+
+    <!-- Editing Fragment -->
+    <dimen name="load_image_placeholder_size">200dp</dimen>
 </resources>

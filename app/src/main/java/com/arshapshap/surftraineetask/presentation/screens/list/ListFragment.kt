@@ -1,5 +1,6 @@
 package com.arshapshap.surftraineetask.presentation.screens.list
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
@@ -45,6 +46,9 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
             addButton.setOnClickListener {
                 viewModel.createCocktail()
             }
+            shareImageView.setOnClickListener {
+                onShareClick()
+            }
         }
     }
 
@@ -70,10 +74,9 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
             cocktails.observe(viewLifecycleOwner) {
                 binding.noCocktailsGroup.isGone = it.isNotEmpty()
                 binding.cocktailsRecyclerView.isGone = it.isEmpty()
+                binding.shareImageView.isGone = it.isEmpty()
+                getCocktailsAdapter().setList(it)
 
-                if (it.isNotEmpty()) {
-                    getCocktailsAdapter().setList(it)
-                }
                 if (firstOpening) {
                     binding.cocktailsRecyclerView.scrollToPosition(it.indexOfFirst { it.id == arguments?.getLong(COCKTAIL_TO_SCROLL_ID_KEY) })
                     firstOpening = false
@@ -86,4 +89,24 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
 
     private fun getCocktailsAdapter(): CocktailsAdapter
         = binding.cocktailsRecyclerView.adapter as CocktailsAdapter
+
+    private fun onShareClick() {
+        val cocktails = viewModel.cocktails.value?.reversed()?.take(4) ?: return
+        val shareText = generateShareText(cocktails.map { it.name })
+
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    private fun generateShareText(cocktails: List<String>): String {
+        val displayedCocktails = cocktails.joinToString(", ")
+
+        return getString(R.string.share_message, displayedCocktails)
+    }
 }
