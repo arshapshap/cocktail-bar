@@ -15,7 +15,7 @@ import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.common.extensions.showAlert
 import com.arshapshap.surftraineetask.common.extensions.showToast
 import com.arshapshap.surftraineetask.databinding.FragmentDetailsBinding
-import java.lang.StringBuilder
+import com.arshapshap.surftraineetask.presentation.screens.details.dialog.DeletionConfirmDialog
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewModel>(
     FragmentDetailsBinding::inflate
@@ -40,7 +40,15 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
         requireContext().appComponent().inject(this)
     }
 
-    override fun initViews() { }
+    override fun initViews() {
+        binding.editButton.setOnClickListener {
+            viewModel.editCocktail()
+        }
+
+        binding.deleteImageView.setOnClickListener {
+            showDeletionConfirmDialog()
+        }
+    }
 
     override fun subscribe() {
         with (viewModel) {
@@ -64,9 +72,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
                     if (!it) {
                         detailsCardView.animate(R.anim.fade_in, R.anim.slide_up)
                         cocktailImageView.animate(R.anim.fade_in)
+                        deleteImageView.animate(R.anim.fade_in)
                     }
                     detailsCardView.isGone = it
                     cocktailImageView.isGone = it
+                    deleteImageView.isGone = it
                 }
             }
 
@@ -85,10 +95,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
                     recipeSubtitleTextView.isGone = it.recipe.isBlank()
                     recipeTextView.isGone = it.recipe.isBlank()
                     recipeTextView.text = it.recipe
-
-                    editButton.setOnClickListener {
-                        // TODO: переход на страницу редактирования
-                    }
                 }
             }
 
@@ -114,5 +120,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
                 stringBuilder.append("\n—\n")
         }
         return stringBuilder.toString()
+    }
+
+    private fun showDeletionConfirmDialog() {
+        val dialogFragment = DeletionConfirmDialog {
+            viewModel.deleteCocktail()
+        }
+        dialogFragment.show(childFragmentManager, "ADD_INGREDIENT_DIALOG")
     }
 }

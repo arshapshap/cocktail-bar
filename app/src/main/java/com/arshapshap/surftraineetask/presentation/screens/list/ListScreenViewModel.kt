@@ -33,6 +33,10 @@ class ListScreenViewModel @AssistedInject constructor(
         router.openCocktailDetails(id)
     }
 
+    fun createCocktail() {
+        router.openCocktailCreating()
+    }
+
     @AssistedFactory
     interface Factory {
 

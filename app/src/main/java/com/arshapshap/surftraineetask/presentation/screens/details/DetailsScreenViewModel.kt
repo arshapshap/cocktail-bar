@@ -1,5 +1,6 @@
 package com.arshapshap.surftraineetask.presentation.screens.details
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -15,6 +16,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailsScreenViewModel @AssistedInject constructor(
     @Assisted private val cocktailId: Long?,
@@ -34,6 +36,7 @@ class DetailsScreenViewModel @AssistedInject constructor(
             ))
     }
 
+    @SuppressLint("NullSafeMutableLiveData")
     fun loadDetails() {
         viewModelScope.launch(Dispatchers.IO) {
             val loadedCocktail = interactor.getCocktailById(id = cocktailId!!)
@@ -52,6 +55,19 @@ class DetailsScreenViewModel @AssistedInject constructor(
 
     fun closeFragment() {
         router.closeCurrentFragment()
+    }
+
+    fun editCocktail() {
+        router.openCocktailEditing(cocktailId!!)
+    }
+
+    fun deleteCocktail() {
+        viewModelScope.launch(Dispatchers.IO) {
+            interactor.deleteCocktailById(cocktailId!!)
+            withContext(Dispatchers.Main) {
+                router.closeCurrentFragment()
+            }
+        }
     }
 
     @AssistedFactory

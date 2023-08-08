@@ -4,6 +4,8 @@ import android.app.Application
 import com.arshapshap.surftraineetask.presentation.MainActivity
 import com.arshapshap.surftraineetask.presentation.screens.details.DetailsFragment
 import com.arshapshap.surftraineetask.presentation.screens.details.DetailsScreenViewModel
+import com.arshapshap.surftraineetask.presentation.screens.editing.EditingFragment
+import com.arshapshap.surftraineetask.presentation.screens.editing.EditingScreenViewModel
 import com.arshapshap.surftraineetask.presentation.screens.list.ListFragment
 import com.arshapshap.surftraineetask.presentation.screens.list.ListScreenViewModel
 import dagger.BindsInstance
@@ -29,7 +31,11 @@ interface AppComponent {
 
     fun inject(detailsFragment: DetailsFragment)
 
+    fun inject(editingFragment: EditingFragment)
+
     fun listScreenViewModel(): ListScreenViewModel.Factory
 
     fun detailsScreenViewModel(): DetailsScreenViewModel.Factory
+
+    fun editingScreenViewModel(): EditingScreenViewModel.Factory
 }

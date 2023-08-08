@@ -3,6 +3,7 @@ package com.arshapshap.surftraineetask.presentation.navigation
 import androidx.navigation.NavController
 import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.presentation.screens.details.DetailsFragment
+import com.arshapshap.surftraineetask.presentation.screens.editing.EditingFragment
 
 class Navigator : MainRouter {
 
@@ -19,11 +20,23 @@ class Navigator : MainRouter {
         }
     }
 
-    override fun closeCurrentFragment() {
-        navController?.popBackStack()
+    override fun openCocktailsListWithScroll(id: Long) {
+        // TODO("Not yet implemented")
     }
 
     override fun openCocktailDetails(id: Long) {
         navController?.navigate(R.id.action_listFragment_to_detailsFragment, DetailsFragment.createBundle(id))
+    }
+
+    override fun openCocktailEditing(id: Long) {
+        navController?.navigate(R.id.action_detailsFragment_to_editingFragment, EditingFragment.createBundle(id))
+    }
+
+    override fun openCocktailCreating() {
+        navController?.navigate(R.id.action_listFragment_to_editingFragment)
+    }
+
+    override fun closeCurrentFragment() {
+        navController?.popBackStack()
     }
 }

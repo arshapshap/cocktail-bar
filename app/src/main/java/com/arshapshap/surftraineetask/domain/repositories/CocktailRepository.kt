@@ -11,4 +11,6 @@ interface CocktailRepository {
     suspend fun addCocktail(cocktail: Cocktail): Long
 
     suspend fun updateCocktail(cocktail: Cocktail)
+
+    suspend fun deleteCocktailById(id: Long)
 }

@@ -72,7 +72,7 @@
         android:gravity="center"
         android:text="@string/add_first_cocktail"
         android:textAppearance="@style/Text.Normal"
-        android:textColor="@color/gray_200"
+        android:textColor="@color/gray_500"
         app:layout_constraintBottom_toTopOf="@id/add_first_cocktail_arrow_image_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
