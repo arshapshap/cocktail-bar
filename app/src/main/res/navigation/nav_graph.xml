@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.arshapshap.surftraineetask.presentation.screens.ListFragment"
+        android:name="com.arshapshap.surftraineetask.presentation.screens.list.ListFragment"
         android:label="ListFragment" />
 </navigation>

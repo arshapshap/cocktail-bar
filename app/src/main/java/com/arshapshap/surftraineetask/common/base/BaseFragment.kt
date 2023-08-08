@@ -45,7 +45,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
     abstract fun initViews()
 
     open fun subscribe() {
-        viewModel.errorLiveData.observe(viewLifecycleOwner) {
+        viewModel.error.observe(viewLifecycleOwner) {
             when (it.level) {
                 ViewModelErrorLevel.Error -> showAlert(
                     title = getString(R.string.error),

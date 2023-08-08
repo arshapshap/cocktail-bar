@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fab_size">80dp</dimen>
+    <dimen name="no_cocktails_placeholder_size">283dp</dimen>
     <dimen name="cocktail_card_size">160dp</dimen>
 </resources>

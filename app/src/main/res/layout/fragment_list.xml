@@ -3,7 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/no_cocktails_group"
@@ -15,8 +26,8 @@
 
     <ImageView
         android:id="@+id/placeholder_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/no_cocktails_placeholder_size"
+        android:layout_height="@dimen/no_cocktails_placeholder_size"
         android:layout_marginTop="33dp"
         android:contentDescription="@string/no_cocktails"
         android:src="@drawable/img_summer_holidays"
@@ -28,10 +39,9 @@
         android:id="@+id/my_cocktails_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginTop="24dp"
         android:text="@string/my_cocktails"
         android:textAppearance="@style/Text.Title"
-        app:layout_constraintBottom_toTopOf="@id/cocktails_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/placeholder_image_view" />
@@ -40,14 +50,17 @@
         android:id="@+id/cocktails_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="12dp"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_cocktails_text_view"
         app:spanCount="2"
-        tools:listitem="@layout/item_cocktail_card" />
+        tools:listitem="@layout/item_cocktail_card"
+        tools:visibility="visible"/>
 
     <TextView
         android:id="@+id/add_first_cocktail_text_view"
