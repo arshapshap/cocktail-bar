@@ -1,70 +1,29 @@
 package com.arshapshap.surftraineetask.data.repositories
 
+import com.arshapshap.surftraineetask.data.dao.CocktailDao
+import com.arshapshap.surftraineetask.data.mappers.CocktailMapper
 import com.arshapshap.surftraineetask.domain.models.Cocktail
 import com.arshapshap.surftraineetask.domain.repositories.CocktailRepository
 import javax.inject.Inject
 
-class CocktailRepositoryImpl @Inject constructor() : CocktailRepository {
+class CocktailRepositoryImpl @Inject constructor(
+    private val localSource: CocktailDao,
+    private val mapper: CocktailMapper
+) : CocktailRepository {
 
     override suspend fun getCocktails(): List<Cocktail> {
-        return listOf(
-            Cocktail(name = "Pink Lemonade",
-                image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Mojito mocktail", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Goblet of Fire", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Purple rain", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Grapefruit Girl", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Mojito mocktail", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Pink Lemonade", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Mojito mocktail", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Goblet of Fire", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Purple rain", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Grapefruit Girl", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-            Cocktail(name = "Mojito mocktail", image = null,
-                description = "",
-                recipe = "",
-                ingredients = listOf()),
-        )
+        return localSource.getAll().map { mapper.mapToDomain(it) }
     }
 
-    override suspend fun addCocktail(cocktail: Cocktail) {
-        TODO("Not yet implemented")
+    override suspend fun getCocktailById(id: Long): Cocktail? {
+        return localSource.getById(id)?.let { mapper.mapToDomain(it) }
+    }
+
+    override suspend fun addCocktail(cocktail: Cocktail): Long {
+        return localSource.add(mapper.mapToEntity(cocktail))
     }
 
     override suspend fun updateCocktail(cocktail: Cocktail) {
-        TODO("Not yet implemented")
+        localSource.update(mapper.mapToEntity(cocktail))
     }
 }

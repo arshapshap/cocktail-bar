@@ -6,7 +6,9 @@ interface CocktailRepository {
 
     suspend fun getCocktails(): List<Cocktail>
 
-    suspend fun addCocktail(cocktail: Cocktail)
+    suspend fun getCocktailById(id: Long): Cocktail?
+
+    suspend fun addCocktail(cocktail: Cocktail): Long
 
     suspend fun updateCocktail(cocktail: Cocktail)
 }
