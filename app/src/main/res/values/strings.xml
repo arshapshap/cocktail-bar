@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Surf Trainee Task</string>
+    <string name="add_cocktail_button">Add cocktail</string>
+    <string name="my_cocktails">My cocktails</string>
+    <string name="add_first_cocktail">Add your first cocktail here</string>
+    <string name="no_cocktails">No cocktails</string>
 </resources>
