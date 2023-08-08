@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
     implementation(libs.androidx.constraintlayout)
-
     implementation(libs.bundles.navigation)
+
+    implementation(libs.bundles.dagger)
+    kapt(libs.bundles.dagger.kapt)
 }

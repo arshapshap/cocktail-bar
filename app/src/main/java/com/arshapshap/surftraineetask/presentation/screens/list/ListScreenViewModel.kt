@@ -4,21 +4,31 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.arshapshap.surftraineetask.common.base.BaseViewModel
+import com.arshapshap.surftraineetask.domain.interactors.ListScreenInteractor
 import com.arshapshap.surftraineetask.domain.models.Cocktail
-import kotlinx.coroutines.delay
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch
 
-class ListViewModel : BaseViewModel() {
+class ListScreenViewModel @AssistedInject constructor(
+    private val interactor: ListScreenInteractor
+) : BaseViewModel() {
 
     private val _cocktails = MutableLiveData<List<Cocktail>>()
     val cocktails: LiveData<List<Cocktail>>
         get() = _cocktails
 
-    init {
+    fun loadCocktails() {
         viewModelScope.launch {
-            delay(2000)
+            val list = interactor.getCocktails()
             _isLoading.postValue(false)
-            _cocktails.postValue(listOf())
+            _cocktails.postValue(list)
         }
+    }
+
+    @AssistedFactory
+    interface Factory {
+
+        fun create(): ListScreenViewModel
     }
 }

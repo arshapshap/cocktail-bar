@@ -2,20 +2,21 @@ package com.arshapshap.surftraineetask.presentation.screens.list
 
 import androidx.core.view.isGone
 import com.arshapshap.surftraineetask.common.base.BaseFragment
+import com.arshapshap.surftraineetask.common.di.appComponent
 import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentListBinding
 import com.arshapshap.surftraineetask.presentation.screens.list.recyclerview.CocktailsAdapter
 
-class ListFragment : BaseFragment<FragmentListBinding, ListViewModel>(
+class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
     FragmentListBinding::inflate
 ) {
 
-    override val viewModel: ListViewModel by lazyViewModel {
-        ListViewModel()
+    override val viewModel: ListScreenViewModel by lazyViewModel {
+        requireContext().appComponent().listScreenViewModel().create()
     }
 
     override fun inject() {
-        // TODO("Добавить DI")
+        requireContext().appComponent().inject(this)
     }
 
     override fun initViews() {
@@ -29,6 +30,10 @@ class ListFragment : BaseFragment<FragmentListBinding, ListViewModel>(
         with (viewModel) {
             isLoading.observe(viewLifecycleOwner) {
                 binding.loadingProgressBar.isGone = !it
+                if (it) {
+                    binding.noCocktailsGroup.isGone = true
+                    binding.cocktailsRecyclerView.isGone = true
+                }
             }
 
             cocktails.observe(viewLifecycleOwner) {
@@ -39,6 +44,8 @@ class ListFragment : BaseFragment<FragmentListBinding, ListViewModel>(
                     getCocktailsAdapter().setList(it)
                 }
             }
+
+            loadCocktails()
         }
     }
 
