@@ -27,4 +27,5 @@
     <string name="save">Save</string>
     <string name="add_ingredient">Add ingredient</string>
     <string name="delete_ingredient">Delete ingredient</string>
+    <string name="add_at_least_one_ingredient">Add at least one ingredient</string>
 </resources>

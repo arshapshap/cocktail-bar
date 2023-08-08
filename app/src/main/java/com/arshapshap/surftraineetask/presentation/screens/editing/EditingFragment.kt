@@ -2,10 +2,14 @@ package com.arshapshap.surftraineetask.presentation.screens.editing
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
+import androidx.core.widget.doAfterTextChanged
+import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.common.base.BaseFragment
 import com.arshapshap.surftraineetask.common.di.appComponent
 import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentEditingBinding
+import com.arshapshap.surftraineetask.presentation.screens.editing.data.CocktailInputError
 import com.arshapshap.surftraineetask.presentation.screens.editing.recyclerview.IngredientsAdapter
 
 class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewModel>(
@@ -38,6 +42,19 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                 onDeleteIngredientClick = viewModel::deleteIngredient
             )
 
+            titleEditText.editText?.doAfterTextChanged {
+                binding.titleEditText.error = null
+                viewModel.changeName(it?.toString() ?: "")
+            }
+
+            descriptionEditText.editText?.doAfterTextChanged {
+                viewModel.changeDescription(it?.toString() ?: "")
+            }
+
+            recipeEditText.editText?.doAfterTextChanged {
+                viewModel.changeRecipe(it?.toString() ?: "")
+            }
+
             saveButton.setOnClickListener {
                 viewModel.save()
             }
@@ -49,6 +66,14 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
 
     override fun subscribe() {
         with (viewModel) {
+            inputErrors.observe(viewLifecycleOwner) { list ->
+                list.forEach {
+                    when (it) {
+                        CocktailInputError.EmptyTitle -> binding.titleEditText.error = getString(R.string.add_title)
+                        CocktailInputError.NoIngredients -> binding.noIngredientsError.isGone = false
+                    }
+                }
+            }
             startCocktailValues.observe(viewLifecycleOwner) {
                 with (binding) {
                     titleEditText.editText?.setText(it.name)
@@ -58,11 +83,17 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                     getIngredientsAdapter().setList(it.ingredients)
                 }
             }
+            editingCocktail.observe(viewLifecycleOwner) { cocktail ->
+                with (binding) {
+                    getIngredientsAdapter().setList(cocktail.ingredients)
+                }
+            }
         }
     }
 
     private fun showIngredientAddingDialog() {
-
+        binding.noIngredientsError.isGone = true
+        viewModel.addIngredient("lallala")
     }
 
     private fun getIngredientsAdapter(): IngredientsAdapter

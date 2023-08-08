@@ -14,7 +14,7 @@
             android:id="@+id/loaded_image_view"
             android:layout_width="@dimen/load_image_placeholder_size"
             android:layout_height="@dimen/load_image_placeholder_size"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/shape_placeholder"
             android:contentDescription="@string/load_image"
             android:scaleType="centerInside"
@@ -34,6 +34,7 @@
             app:boxCornerRadiusBottomStart="56dp"
             app:boxCornerRadiusTopEnd="56dp"
             app:boxCornerRadiusTopStart="56dp"
+            app:errorEnabled="true"
             app:helperText="@string/add_title"
             app:helperTextTextAppearance="@style/Text.Hint"
             app:helperTextTextColor="@color/gray_500"
@@ -78,17 +79,37 @@
                 android:textAppearance="@style/Text.Normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ingredients_recycler_view"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ingredients_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description_edit_text"
-            tools:listitem="@layout/item_ingredient" />
+            app:layout_constraintTop_toBottomOf="@id/description_edit_text">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredients_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_ingredient" />
+
+            <TextView
+                android:id="@+id/no_ingredients_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/add_at_least_one_ingredient"
+                android:textAppearance="@style/Text.Hint"
+                android:textColor="?attr/colorError"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/recipe_edit_text"
@@ -108,7 +129,7 @@
             app:hintTextColor="@color/gray_500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ingredients_recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/ingredients_layout"
             app:placeholderTextAppearance="@style/Text.Normal">
 
             <com.google.android.material.textfield.TextInputEditText

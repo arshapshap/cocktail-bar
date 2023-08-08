@@ -17,4 +17,12 @@ class CocktailsInteractor @Inject constructor(
     suspend fun getCocktailById(id: Long): Cocktail? {
         return repository.getCocktailById(id)
     }
+
+    suspend fun addCocktail(cocktail: Cocktail): Long {
+        return repository.addCocktail(cocktail)
+    }
+
+    suspend fun updateCocktail(cocktail: Cocktail) {
+        repository.updateCocktail(cocktail)
+    }
 }
