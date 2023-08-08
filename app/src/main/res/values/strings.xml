@@ -28,4 +28,6 @@
     <string name="add_ingredient">Add ingredient</string>
     <string name="delete_ingredient">Delete ingredient</string>
     <string name="add_at_least_one_ingredient">Add at least one ingredient</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="add">Add</string>
 </resources>

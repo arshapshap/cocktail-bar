@@ -10,6 +10,7 @@ import com.arshapshap.surftraineetask.common.di.appComponent
 import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentEditingBinding
 import com.arshapshap.surftraineetask.presentation.screens.editing.data.CocktailInputError
+import com.arshapshap.surftraineetask.presentation.screens.editing.dialog.IngredientAddingDialog
 import com.arshapshap.surftraineetask.presentation.screens.editing.recyclerview.IngredientsAdapter
 
 class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewModel>(
@@ -93,7 +94,10 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
 
     private fun showIngredientAddingDialog() {
         binding.noIngredientsError.isGone = true
-        viewModel.addIngredient("lallala")
+        val dialogFragment = IngredientAddingDialog {
+            viewModel.addIngredient(it)
+        }
+        dialogFragment.show(childFragmentManager, "ADD_INGREDIENT_DIALOG")
     }
 
     private fun getIngredientsAdapter(): IngredientsAdapter

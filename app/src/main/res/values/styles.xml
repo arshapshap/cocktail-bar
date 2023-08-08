@@ -35,4 +35,17 @@
     <style name="Text.Hint">
         <item name="android:textSize">12sp</item>
     </style>
+
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">56dp</item>
+        <item name="boxCornerRadiusTopEnd">56dp</item>
+        <item name="boxCornerRadiusBottomStart">56dp</item>
+        <item name="boxCornerRadiusBottomEnd">56dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="helperTextTextAppearance">@style/Text.Hint</item>
+        <item name="helperTextTextColor">@color/gray_500</item>
+        <item name="hintTextAppearance">@style/Text.Hint</item>
+        <item name="hintTextColor">@color/gray_500</item>
+        <item name="placeholderTextAppearance">@style/Text.Normal</item>
+    </style>
 </resources>
