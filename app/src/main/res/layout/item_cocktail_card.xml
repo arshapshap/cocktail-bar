@@ -12,8 +12,10 @@
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gray_100"
         android:importantForAccessibility="no"
-        android:src="@color/gray_200" />
+        android:scaleType="centerInside"
+        android:src="@drawable/img_summer_holidays" />
 
     <TextView
         android:id="@+id/name_text_view"

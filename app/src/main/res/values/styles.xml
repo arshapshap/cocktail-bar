@@ -28,6 +28,10 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="Text.Subnormal">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="Text.Hint">
         <item name="android:textSize">12sp</item>
     </style>
