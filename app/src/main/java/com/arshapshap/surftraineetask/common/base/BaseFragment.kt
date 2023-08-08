@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.arshapshap.surftraineetask.R
-import com.arshapshap.surftraineetask.common.extensions.showAlert
-import com.arshapshap.surftraineetask.common.extensions.showToast
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -44,20 +41,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
 
     abstract fun initViews()
 
-    open fun subscribe() {
-        viewModel.error.observe(viewLifecycleOwner) {
-            when (it.level) {
-                ViewModelErrorLevel.Error -> showAlert(
-                    title = getString(R.string.error),
-                    message = getString(it.messageRes)
-                )
-
-                ViewModelErrorLevel.Message -> showToast(
-                    message = getString(it.messageRes)
-                )
-            }
-        }
-    }
+    abstract fun subscribe()
 
     override fun onDestroyView() {
         super.onDestroyView()

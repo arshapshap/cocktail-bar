@@ -13,14 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:importantForAccessibility="no"
-        android:src="@color/gray_200" />
+        android:scaleType="centerInside"
+        android:src="@drawable/img_summer_holidays" />
 
     <TextView
         android:id="@+id/name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="30dp"
+        android:padding="4dp"
+        android:background="@drawable/shape_translucent"
         android:textAppearance="@style/Text.OnCard"
         tools:text="Pink Limonade" />
 
