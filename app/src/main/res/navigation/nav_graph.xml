@@ -46,6 +46,7 @@
             app:destination="@id/listFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right"
-            app:popUpToInclusive="@id/listFragment"/>
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
