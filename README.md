@@ -51,5 +51,5 @@
 * Dagger 2
 * Room
 * Navigation Component
-* XML, Constraint Layout, RecyclerView
+* Views, Constraint Layout, RecyclerView
 * Animations
