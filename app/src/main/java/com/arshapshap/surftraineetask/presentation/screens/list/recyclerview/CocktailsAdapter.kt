@@ -8,18 +8,25 @@ import com.arshapshap.surftraineetask.databinding.ItemCocktailCardBinding
 import com.arshapshap.surftraineetask.domain.models.Cocktail
 
 class CocktailsAdapter(
-    private var list: List<Cocktail> = listOf()
+    private var list: List<Cocktail> = listOf(),
+    private val onItemClick: (Long) -> Unit
 ) : RecyclerView.Adapter<CocktailsAdapter.ViewHolder>() {
 
     class ViewHolder(
-        val binding: ItemCocktailCardBinding
+        val binding: ItemCocktailCardBinding,
+        val onClick: (Long) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(cocktail: Cocktail) {
             with (binding) {
-                nameTextView.text = cocktail.name
                 if (cocktail.image.isNotBlank()) {
                     // TODO: Загружать картинку (в зависимости от того, как буду хранить)
+                }
+
+                nameTextView.text = cocktail.name
+
+                root.setOnClickListener {
+                    onClick.invoke(cocktail.id)
                 }
             }
         }
@@ -38,7 +45,8 @@ class CocktailsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            binding = getBinding(parent)
+            binding = getBinding(parent),
+            onClick = onItemClick
         )
 
     override fun getItemCount(): Int =

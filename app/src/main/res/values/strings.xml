@@ -11,6 +11,9 @@
     <string name="my_cocktails">My cocktails</string>
     <string name="add_first_cocktail">Add your first cocktail here</string>
     <string name="no_cocktails">No cocktails</string>
+
+    <!-- Details Fragment -->
     <string name="recipe">Recipe:</string>
     <string name="edit">Edit</string>
+    <string name="cocktail_not_found">Cocktail not found</string>
 </resources>

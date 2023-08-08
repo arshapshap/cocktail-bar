@@ -6,11 +6,15 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ListScreenInteractor @Inject constructor(
+class CocktailsInteractor @Inject constructor(
     private val repository: CocktailRepository
 ) {
 
     suspend fun getCocktails(): List<Cocktail> {
         return repository.getCocktails()
+    }
+
+    suspend fun getCocktailById(id: Long): Cocktail? {
+        return repository.getCocktailById(id)
     }
 }

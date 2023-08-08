@@ -21,12 +21,13 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
 
     override fun initViews() {
         with (binding) {
-            cocktailsRecyclerView.adapter = CocktailsAdapter()
+            cocktailsRecyclerView.adapter = CocktailsAdapter() {
+                viewModel.openCocktailDetails(it)
+            }
         }
     }
 
     override fun subscribe() {
-        super.subscribe()
         with (viewModel) {
             isLoading.observe(viewLifecycleOwner) {
                 binding.loadingProgressBar.isGone = !it
