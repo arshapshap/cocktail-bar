@@ -3,11 +3,15 @@ package com.arshapshap.surftraineetask.presentation.screens.list
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
+import com.arshapshap.surftraineetask.R
+import com.arshapshap.surftraineetask.databinding.FragmentListBinding
+import com.arshapshap.surftraineetask.presentation.screens.list.recyclerview.CocktailsAdapter
 import com.arshapshap.surftraineetask.utils.base.BaseFragment
 import com.arshapshap.surftraineetask.utils.di.appComponent
 import com.arshapshap.surftraineetask.utils.di.lazyViewModel
-import com.arshapshap.surftraineetask.databinding.FragmentListBinding
-import com.arshapshap.surftraineetask.presentation.screens.list.recyclerview.CocktailsAdapter
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.MaterialShapeDrawable
+
 
 class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
     FragmentListBinding::inflate
@@ -33,6 +37,7 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
     }
 
     override fun initViews() {
+        setBottomAppBarBackground()
         with (binding) {
             cocktailsRecyclerView.adapter = CocktailsAdapter() {
                 viewModel.openCocktailDetails(it)
@@ -41,6 +46,15 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
                 viewModel.createCocktail()
             }
         }
+    }
+
+    private fun setBottomAppBarBackground() {
+        val radius = resources.getDimension(R.dimen.bottomappbar_corners_radius)
+        val bottomBarBackground = binding.bottomAppBar.background as MaterialShapeDrawable
+        bottomBarBackground.shapeAppearanceModel =
+            bottomBarBackground.shapeAppearanceModel.toBuilder()
+                .setTopRightCorner(CornerFamily.ROUNDED, radius)
+                .setTopLeftCorner(CornerFamily.ROUNDED, radius).build()
     }
 
     override fun subscribe() {

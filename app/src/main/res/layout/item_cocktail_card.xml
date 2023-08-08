@@ -23,7 +23,7 @@
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="30dp"
         android:padding="4dp"
-        android:background="@drawable/shape_translucent"
+        android:background="@drawable/shape_radius80"
         android:textAppearance="@style/Text.OnCard"
         tools:text="Pink Limonade" />
 
