@@ -9,7 +9,6 @@ import com.arshapshap.surftraineetask.common.base.BaseFragment
 import com.arshapshap.surftraineetask.common.di.appComponent
 import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentEditingBinding
-import com.arshapshap.surftraineetask.presentation.screens.editing.data.CocktailInputError
 import com.arshapshap.surftraineetask.presentation.screens.editing.dialog.IngredientAddingDialog
 import com.arshapshap.surftraineetask.presentation.screens.editing.recyclerview.IngredientsAdapter
 

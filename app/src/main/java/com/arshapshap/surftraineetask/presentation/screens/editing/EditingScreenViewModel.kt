@@ -7,7 +7,6 @@ import com.arshapshap.surftraineetask.common.base.BaseViewModel
 import com.arshapshap.surftraineetask.domain.interactors.CocktailsInteractor
 import com.arshapshap.surftraineetask.domain.models.Cocktail
 import com.arshapshap.surftraineetask.presentation.navigation.MainRouter
-import com.arshapshap.surftraineetask.presentation.screens.editing.data.CocktailInputError
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -57,7 +56,7 @@ class EditingScreenViewModel @AssistedInject constructor(
     fun changeName(name: String) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(
-                it.copy(name = name)
+                it.copy(name = name.trim())
             )
         }
     }
@@ -65,7 +64,7 @@ class EditingScreenViewModel @AssistedInject constructor(
     fun changeDescription(description: String) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(
-                it.copy(description = description)
+                it.copy(description = description.trim())
             )
         }
     }
@@ -75,7 +74,7 @@ class EditingScreenViewModel @AssistedInject constructor(
             if (ingredient in it.ingredients) return
 
             _editingCocktail.postValue(
-                it.copy(ingredients = it.ingredients.plus(ingredient))
+                it.copy(ingredients = it.ingredients.plus(ingredient.trim()))
             )
         }
     }
@@ -83,7 +82,7 @@ class EditingScreenViewModel @AssistedInject constructor(
     fun deleteIngredient(ingredient: String) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(
-                it.copy(ingredients = it.ingredients.remove(ingredient))
+                it.copy(ingredients = it.ingredients.remove(ingredient.trim()))
             )
         }
     }
@@ -91,7 +90,7 @@ class EditingScreenViewModel @AssistedInject constructor(
     fun changeRecipe(recipe: String) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(
-                it.copy(recipe = recipe)
+                it.copy(recipe = recipe.trim())
             )
         }
     }
