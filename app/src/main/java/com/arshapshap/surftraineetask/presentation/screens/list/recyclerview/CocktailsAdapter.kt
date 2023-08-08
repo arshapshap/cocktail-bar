@@ -16,7 +16,12 @@ class CocktailsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(cocktail: Cocktail) {
-
+            with (binding) {
+                nameTextView.text = cocktail.name
+                if (cocktail.image != null) {
+                    // TODO: Загружать картинку (в зависимости от того, как буду хранить)
+                }
+            }
         }
     }
 

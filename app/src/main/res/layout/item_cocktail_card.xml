@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/cocktail_card_size"
     android:layout_height="@dimen/cocktail_card_size"
-    android:layout_margin="4dp"
+    android:layout_margin="6dp"
     app:cardCornerRadius="54dp"
     app:cardElevation="0dp">
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:importantForAccessibility="no"
-        tools:src="@color/gray_200" />
+        android:src="@color/gray_200" />
 
     <TextView
         android:id="@+id/name_text_view"
