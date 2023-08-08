@@ -24,15 +24,15 @@
 <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/1358a725-5c23-4f4d-86c9-4b14f844d53b' width=150 />
 
 ### Скринкасты:
-<details><summary>Добавление рецепта</summary>
+<details><summary>Добавление коктейля</summary>
 <br>
   <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/faf3ec12-6734-4ee9-93ff-fb8be9a82b1c' width=200 />
 </details>
-<details><summary>Редактирование рецепта</summary>
+<details><summary>Редактирование коктейля</summary>
 <br>
   <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/6c4842d2-85c3-45c7-a541-72cccc44c73d' width=200 />
 </details>
-<details><summary>Удаление рецепта</summary>
+<details><summary>Удаление коктейля</summary>
 <br>
   <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/9955b40b-b9a2-474e-9999-6c83a8519ad7' width=200 />
 </details>
