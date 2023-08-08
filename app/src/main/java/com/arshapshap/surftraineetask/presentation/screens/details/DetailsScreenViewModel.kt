@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.arshapshap.surftraineetask.R
-import com.arshapshap.surftraineetask.common.base.BaseViewModel
-import com.arshapshap.surftraineetask.common.base.ViewModelError
-import com.arshapshap.surftraineetask.common.base.ViewModelErrorLevel
+import com.arshapshap.surftraineetask.utils.base.BaseViewModel
+import com.arshapshap.surftraineetask.utils.base.ViewModelError
+import com.arshapshap.surftraineetask.utils.base.ViewModelErrorLevel
 import com.arshapshap.surftraineetask.domain.interactors.CocktailsInteractor
 import com.arshapshap.surftraineetask.domain.models.Cocktail
 import com.arshapshap.surftraineetask.presentation.navigation.MainRouter

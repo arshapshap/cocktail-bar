@@ -40,5 +40,12 @@
         android:id="@+id/editingFragment"
         android:name="com.arshapshap.surftraineetask.presentation.screens.editing.EditingFragment"
         android:label="EditingFragment"
-        tools:layout="@layout/fragment_editing" />
+        tools:layout="@layout/fragment_editing" >
+        <action
+            android:id="@+id/action_editingFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="@id/listFragment"/>
+    </fragment>
 </navigation>

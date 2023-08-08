@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.presentation.screens.details.DetailsFragment
 import com.arshapshap.surftraineetask.presentation.screens.editing.EditingFragment
+import com.arshapshap.surftraineetask.presentation.screens.list.ListFragment
 
 class Navigator : MainRouter {
 
@@ -21,7 +22,7 @@ class Navigator : MainRouter {
     }
 
     override fun openCocktailsListWithScroll(id: Long) {
-        // TODO("Not yet implemented")
+        navController?.navigate(R.id.action_editingFragment_to_listFragment, ListFragment.createBundle(id))
     }
 
     override fun openCocktailDetails(id: Long) {

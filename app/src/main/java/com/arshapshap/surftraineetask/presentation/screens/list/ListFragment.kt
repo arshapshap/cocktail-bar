@@ -1,15 +1,28 @@
 package com.arshapshap.surftraineetask.presentation.screens.list
 
+import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
-import com.arshapshap.surftraineetask.common.base.BaseFragment
-import com.arshapshap.surftraineetask.common.di.appComponent
-import com.arshapshap.surftraineetask.common.di.lazyViewModel
+import com.arshapshap.surftraineetask.utils.base.BaseFragment
+import com.arshapshap.surftraineetask.utils.di.appComponent
+import com.arshapshap.surftraineetask.utils.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentListBinding
 import com.arshapshap.surftraineetask.presentation.screens.list.recyclerview.CocktailsAdapter
 
 class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
     FragmentListBinding::inflate
 ) {
+
+    companion object {
+
+        fun createBundle(cocktailToScrollId: Long): Bundle {
+            return bundleOf(COCKTAIL_TO_SCROLL_ID_KEY to cocktailToScrollId)
+        }
+
+        private const val COCKTAIL_TO_SCROLL_ID_KEY = "COCKTAIL_TO_SCROLL_ID_KEY"
+    }
+
+    private var firstOpening = true
 
     override val viewModel: ListScreenViewModel by lazyViewModel {
         requireContext().appComponent().listScreenViewModel().create()
@@ -46,6 +59,10 @@ class ListFragment : BaseFragment<FragmentListBinding, ListScreenViewModel>(
 
                 if (it.isNotEmpty()) {
                     getCocktailsAdapter().setList(it)
+                }
+                if (firstOpening) {
+                    binding.cocktailsRecyclerView.scrollToPosition(it.indexOfFirst { it.id == arguments?.getLong(COCKTAIL_TO_SCROLL_ID_KEY) })
+                    firstOpening = false
                 }
             }
 

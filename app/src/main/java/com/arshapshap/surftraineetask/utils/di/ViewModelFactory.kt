@@ -1,4 +1,4 @@
-package com.arshapshap.surftraineetask.common.di
+package com.arshapshap.surftraineetask.utils.di
 
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle

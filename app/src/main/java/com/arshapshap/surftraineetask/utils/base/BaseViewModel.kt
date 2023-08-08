@@ -1,4 +1,4 @@
-package com.arshapshap.surftraineetask.common.base
+package com.arshapshap.surftraineetask.utils.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.arshapshap.surftraineetask.common.di
+package com.arshapshap.surftraineetask.utils.di
 
 import android.content.Context
 import androidx.fragment.app.Fragment

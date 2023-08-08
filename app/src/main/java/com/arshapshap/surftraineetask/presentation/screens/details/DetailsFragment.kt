@@ -8,12 +8,12 @@ import androidx.annotation.AnimRes
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import com.arshapshap.surftraineetask.R
-import com.arshapshap.surftraineetask.common.base.BaseFragment
-import com.arshapshap.surftraineetask.common.base.ViewModelErrorLevel
-import com.arshapshap.surftraineetask.common.di.appComponent
-import com.arshapshap.surftraineetask.common.di.lazyViewModel
-import com.arshapshap.surftraineetask.common.extensions.showAlert
-import com.arshapshap.surftraineetask.common.extensions.showToast
+import com.arshapshap.surftraineetask.utils.base.BaseFragment
+import com.arshapshap.surftraineetask.utils.base.ViewModelErrorLevel
+import com.arshapshap.surftraineetask.utils.di.appComponent
+import com.arshapshap.surftraineetask.utils.di.lazyViewModel
+import com.arshapshap.surftraineetask.utils.extensions.showAlert
+import com.arshapshap.surftraineetask.utils.extensions.showToast
 import com.arshapshap.surftraineetask.databinding.FragmentDetailsBinding
 import com.arshapshap.surftraineetask.presentation.screens.details.dialog.DeletionConfirmDialog
 

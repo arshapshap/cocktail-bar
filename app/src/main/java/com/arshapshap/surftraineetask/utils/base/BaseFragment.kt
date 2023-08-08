@@ -1,4 +1,4 @@
-package com.arshapshap.surftraineetask.common.base
+package com.arshapshap.surftraineetask.utils.base
 
 import android.content.Context
 import android.os.Bundle

@@ -5,12 +5,12 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.core.widget.doAfterTextChanged
 import com.arshapshap.surftraineetask.R
-import com.arshapshap.surftraineetask.common.base.BaseFragment
-import com.arshapshap.surftraineetask.common.di.appComponent
-import com.arshapshap.surftraineetask.common.di.lazyViewModel
 import com.arshapshap.surftraineetask.databinding.FragmentEditingBinding
 import com.arshapshap.surftraineetask.presentation.screens.editing.dialog.IngredientAddingDialog
 import com.arshapshap.surftraineetask.presentation.screens.editing.recyclerview.IngredientsAdapter
+import com.arshapshap.surftraineetask.utils.base.BaseFragment
+import com.arshapshap.surftraineetask.utils.di.appComponent
+import com.arshapshap.surftraineetask.utils.di.lazyViewModel
 
 class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewModel>(
     FragmentEditingBinding::inflate
@@ -93,6 +93,7 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
 
     private fun showIngredientAddingDialog() {
         binding.noIngredientsError.isGone = true
+        binding.root.clearFocus()
         val dialogFragment = IngredientAddingDialog {
             viewModel.addIngredient(it)
         }

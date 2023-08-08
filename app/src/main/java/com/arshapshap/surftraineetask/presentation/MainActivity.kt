@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.arshapshap.surftraineetask.R
-import com.arshapshap.surftraineetask.common.di.appComponent
+import com.arshapshap.surftraineetask.utils.di.appComponent
 import com.arshapshap.surftraineetask.presentation.navigation.Navigator
 import javax.inject.Inject
 
