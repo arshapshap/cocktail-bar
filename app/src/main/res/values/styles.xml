@@ -19,6 +19,11 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="Text.OnCard">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="Text.Normal">
         <item name="android:textSize">16sp</item>
     </style>
