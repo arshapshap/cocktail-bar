@@ -41,12 +41,14 @@
   <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/29073ea5-b588-4d6d-9c8c-6340ee77f737' width=200 />
 </details>
 
-## Используемые технологии
+## Архитектура
+* Clean Architecture
+* MVVM
 
+## Используемые технологии
 * Kotlin
 * Android SDK
-* Clean Architecture
-* MVVM, LiveData
+* LiveData
 * Coroutines
 * Dagger 2
 * Room
