@@ -1,7 +1,8 @@
-package com.arshapshap.surftraineetask
+package com.arshapshap.surftraineetask.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.arshapshap.surftraineetask.R
 
 class MainActivity : AppCompatActivity() {
 
