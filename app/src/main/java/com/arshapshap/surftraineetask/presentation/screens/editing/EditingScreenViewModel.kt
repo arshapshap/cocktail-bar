@@ -53,6 +53,14 @@ class EditingScreenViewModel @AssistedInject constructor(
             )
     }
 
+    fun changeImageURI(uri: String?) {
+        editingCocktail.value?.let {
+            _editingCocktail.postValue(
+                it.copy(image = uri ?: "")
+            )
+        }
+    }
+
     fun changeName(name: String) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(

@@ -10,18 +10,26 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/loaded_image_view"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="@dimen/load_image_placeholder_size"
             android:layout_height="@dimen/load_image_placeholder_size"
             android:layout_marginTop="24dp"
-            android:background="@drawable/shape_radius54"
-            android:contentDescription="@string/load_image"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_photo"
+            app:cardCornerRadius="54dp"
+            app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/loaded_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_100"
+                android:contentDescription="@string/load_image"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_photo" />
+        </androidx.cardview.widget.CardView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title_edit_text"
@@ -33,7 +41,7 @@
             app:helperText="@string/add_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loaded_image_view">
+            app:layout_constraintTop_toBottomOf="@id/card_view">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -57,7 +65,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/Text.Normal"/>
+                android:textAppearance="@style/Text.Normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
