@@ -10,7 +10,7 @@ class CocktailMapper @Inject constructor() {
         CocktailEntity(
             id = id,
             name = name,
-            image = image,
+            imageUri = imageUri,
             description = description,
             recipe = recipe,
             ingredients = ingredients
@@ -21,7 +21,7 @@ class CocktailMapper @Inject constructor() {
         Cocktail(
             id = id,
             name = name,
-            image = image,
+            imageUri = imageUri,
             description = description,
             recipe = recipe,
             ingredients = ingredients

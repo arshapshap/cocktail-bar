@@ -1,9 +1,12 @@
 package com.arshapshap.surftraineetask.presentation.screens.list.recyclerview
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.databinding.ItemCocktailCardBinding
 import com.arshapshap.surftraineetask.domain.models.Cocktail
 
@@ -46,9 +49,9 @@ class CocktailsAdapter(
 
         fun onBind(cocktail: Cocktail) {
             with (binding) {
-                if (cocktail.image.isNotBlank()) {
-                    // TODO: Загружать картинку (в зависимости от того, как буду хранить)
-                }
+                imageView.setImageResource(R.drawable.img_summer_holidays)
+                if (cocktail.imageUri.isNotBlank())
+                    imageView.load(Uri.parse(cocktail.imageUri))
 
                 nameTextView.text = cocktail.name
 

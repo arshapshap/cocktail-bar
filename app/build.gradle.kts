@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.arshapshap.surftraineetask"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.arshapshap.surftraineetask"
         minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 34
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,6 +26,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     buildFeatures {
@@ -52,6 +53,7 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.bundles.navigation)
+    implementation(libs.coil)
 
     implementation(libs.bundles.room)
     kapt(libs.bundles.room.kapt)

@@ -1,11 +1,17 @@
 package com.arshapshap.surftraineetask.presentation.screens.editing
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.core.widget.doAfterTextChanged
 import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.databinding.FragmentEditingBinding
+import com.arshapshap.surftraineetask.presentation.screens.editing.dialog.ImageChangingDialog
 import com.arshapshap.surftraineetask.presentation.screens.editing.dialog.IngredientAddingDialog
 import com.arshapshap.surftraineetask.presentation.screens.editing.recyclerview.IngredientsAdapter
 import com.arshapshap.surftraineetask.utils.base.BaseFragment
@@ -35,26 +41,36 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
         requireContext().appComponent().inject(this)
     }
 
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent())
+    { uri ->
+        if (uri == null)
+            return@registerForActivityResult
+        viewModel.changeImageURI(uri.toString())
+        requireContext().contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    }
+
     override fun initViews() {
         with (binding) {
             ingredientsRecyclerView.adapter = IngredientsAdapter(
                 onAddButtonClick = ::showIngredientAddingDialog,
                 onDeleteIngredientClick = viewModel::deleteIngredient
             )
-
+            loadedImageView.setOnClickListener {
+                if (viewModel.editingCocktail.value?.imageUri.isNullOrBlank())
+                    getImageFromGallery()
+                else
+                    showImageChangingDialog()
+            }
             titleEditText.editText?.doAfterTextChanged {
                 binding.titleEditText.error = null
                 viewModel.changeName(it?.toString() ?: "")
             }
-
             descriptionEditText.editText?.doAfterTextChanged {
                 viewModel.changeDescription(it?.toString() ?: "")
             }
-
             recipeEditText.editText?.doAfterTextChanged {
                 viewModel.changeRecipe(it?.toString() ?: "")
             }
-
             saveButton.setOnClickListener {
                 viewModel.save()
             }
@@ -84,11 +100,35 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                 }
             }
             editingCocktail.observe(viewLifecycleOwner) { cocktail ->
-                with (binding) {
-                    getIngredientsAdapter().setList(cocktail.ingredients)
-                }
+                getIngredientsAdapter().setList(cocktail.ingredients)
+                changeImage(cocktail.imageUri)
             }
         }
+    }
+
+    private fun changeImage(imageUri: String) = with (binding) {
+        if (imageUri != "") {
+            loadedImageView.setImageURI(Uri.parse(imageUri))
+            loadedImageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        } else {
+            loadedImageView.setImageDrawable(
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_photo, requireContext().theme)
+            )
+            loadedImageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+        }
+    }
+
+    private fun showImageChangingDialog() {
+        binding.root.clearFocus()
+        val dialogFragment = ImageChangingDialog(
+            onChangeImage = { getImageFromGallery() },
+            onRemoveImage = { viewModel.changeImageURI(null) }
+        )
+        dialogFragment.show(childFragmentManager, "CHANGE_IMAGE_DIALOG")
+    }
+
+    private fun getImageFromGallery() {
+        getContent.launch("image/*")
     }
 
     private fun showIngredientAddingDialog() {
