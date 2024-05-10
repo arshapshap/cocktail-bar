@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.arshapshap.surftraineetask.R
 import com.arshapshap.surftraineetask.databinding.ItemCocktailCardBinding
 import com.arshapshap.surftraineetask.domain.models.Cocktail
@@ -48,10 +49,9 @@ class CocktailsAdapter(
 
         fun onBind(cocktail: Cocktail) {
             with (binding) {
+                imageView.setImageResource(R.drawable.img_summer_holidays)
                 if (cocktail.imageUri.isNotBlank())
-                    imageView.setImageURI(Uri.parse(cocktail.imageUri))
-                else
-                    imageView.setImageResource(R.drawable.img_summer_holidays)
+                    imageView.load(Uri.parse(cocktail.imageUri))
 
                 nameTextView.text = cocktail.name
 

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.ir.backend.js.compile
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
@@ -53,6 +55,7 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.bundles.navigation)
+    implementation(libs.coil)
 
     implementation(libs.bundles.room)
     kapt(libs.bundles.room.kapt)
