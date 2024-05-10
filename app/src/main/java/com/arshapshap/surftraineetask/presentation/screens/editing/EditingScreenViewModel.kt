@@ -44,7 +44,7 @@ class EditingScreenViewModel @AssistedInject constructor(
             _editingCocktail.postValue(
                 Cocktail(
                     id = 0,
-                    image = "",
+                    imageUri = "",
                     name = "",
                     description = "",
                     recipe = "",
@@ -56,7 +56,7 @@ class EditingScreenViewModel @AssistedInject constructor(
     fun changeImageURI(uri: String?) {
         editingCocktail.value?.let {
             _editingCocktail.postValue(
-                it.copy(image = uri ?: "")
+                it.copy(imageUri = uri ?: "")
             )
         }
     }

@@ -46,7 +46,7 @@ class CocktailsAdapter(
 
         fun onBind(cocktail: Cocktail) {
             with (binding) {
-                if (cocktail.image.isNotBlank()) {
+                if (cocktail.imageUri.isNotBlank()) {
                     // TODO: Загружать картинку (в зависимости от того, как буду хранить)
                 }
 

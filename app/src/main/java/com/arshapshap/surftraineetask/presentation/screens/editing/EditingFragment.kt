@@ -3,7 +3,6 @@ package com.arshapshap.surftraineetask.presentation.screens.editing
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
@@ -54,7 +53,7 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                 onDeleteIngredientClick = viewModel::deleteIngredient
             )
             loadedImageView.setOnClickListener {
-                if (viewModel.editingCocktail.value?.image == "")
+                if (viewModel.editingCocktail.value?.imageUri == "")
                     getImageFromGallery()
                 else
                     showImageChangingDialog()
@@ -99,7 +98,7 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
             }
             editingCocktail.observe(viewLifecycleOwner) { cocktail ->
                 getIngredientsAdapter().setList(cocktail.ingredients)
-                changeImage(cocktail.image)
+                changeImage(cocktail.imageUri)
             }
         }
     }
