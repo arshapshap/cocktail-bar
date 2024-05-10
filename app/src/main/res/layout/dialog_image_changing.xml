@@ -7,14 +7,25 @@
     android:backgroundTint="@color/white"
     android:padding="24dp">
 
+    <TextView
+        android:id="@+id/dialog_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_the_image"
+        android:textAppearance="@style/Text.Subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/change_image_button"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ripple_button"
-        android:text="@string/change_the_image"
+        android:text="@string/pick_from_gallery"
         android:textAppearance="@style/Text.OnButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/dialog_title_text_view" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/remove_image_button"
@@ -22,7 +33,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ripple_button_outlined_error"
-        android:text="@string/remove_the_image"
+        android:text="@string/remove"
         android:textAppearance="@style/Text.OnButton"
         android:textColor="?attr/colorError"
         app:layout_constraintTop_toBottomOf="@id/change_image_button" />

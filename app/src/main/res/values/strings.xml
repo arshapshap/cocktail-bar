@@ -35,6 +35,7 @@
     <string name="deletion_confirm">Are you sure you want to delete this recipe?</string>
     <string name="delete">Delete</string>
     <string name="share_cocktails">Share cocktails</string>
-    <string name="remove_the_image">Remove the image</string>
+    <string name="remove">Remove</string>
     <string name="change_the_image">Change the image</string>
+    <string name="pick_from_gallery">Pick from gallery</string>
 </resources>
