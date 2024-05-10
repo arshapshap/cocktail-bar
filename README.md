@@ -39,6 +39,12 @@
   <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/74fbed56-9ca8-4e44-a72b-98c7da918287' width=200 />
 </details>
 
+## Скачивание
+      
+  * APK-файл доступен для скачивания в разделе Releases:
+
+    - [Version 1.1](https://github.com/arshapshap/surf-trainee-task/releases/tag/v1.1)
+
 ## Архитектура
 * Clean Architecture
 * MVVM
