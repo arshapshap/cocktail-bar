@@ -56,7 +56,7 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                 onDeleteIngredientClick = viewModel::deleteIngredient
             )
             loadedImageView.setOnClickListener {
-                if (!viewModel.editingCocktail.value?.imageUri.isNullOrBlank())
+                if (viewModel.editingCocktail.value?.imageUri.isNullOrBlank())
                     getImageFromGallery()
                 else
                     showImageChangingDialog()
