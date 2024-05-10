@@ -1,4 +1,4 @@
-# <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/f8f8f67f-a3ad-4ebe-9773-aeb6e51f7751' width=50 /> Cocktail Bar
+# <image src='https://github.com/arshapshap/cocktail-bar/assets/48681339/f8f8f67f-a3ad-4ebe-9773-aeb6e51f7751' width=50 /> Cocktail Bar
 
   Мобильное приложение, позволяющее создавать и сохранять свои любимые коктейли в одном месте. (Тестовое задание)
 
@@ -43,7 +43,7 @@
       
   * APK-файл доступен для скачивания в разделе Releases:
 
-    - [Version 1.1](https://github.com/arshapshap/surf-trainee-task/releases/tag/v1.1)
+    - [Version 1.1](https://github.com/arshapshap/cocktail-bar/releases/tag/v1.1)
 
 ## Архитектура
 * Clean Architecture
