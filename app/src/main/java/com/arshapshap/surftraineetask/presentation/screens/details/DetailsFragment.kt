@@ -1,5 +1,6 @@
 package com.arshapshap.surftraineetask.presentation.screens.details
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationSet
@@ -82,8 +83,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsScreenViewMo
 
             cocktail.observe(viewLifecycleOwner) {
                 with (binding) {
-                    // TODO: загрузка изображения
-                    cocktailImageView.setImageResource(R.drawable.img_summer_holidays)
+                    if (it.imageUri.isNotBlank())
+                        cocktailImageView.setImageURI(Uri.parse(it.imageUri))
+                    else
+                        cocktailImageView.setImageResource(R.drawable.img_summer_holidays)
 
                     nameTextView.text = it.name
 

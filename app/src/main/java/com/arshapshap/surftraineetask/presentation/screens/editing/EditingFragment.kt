@@ -1,5 +1,6 @@
 package com.arshapshap.surftraineetask.presentation.screens.editing
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
@@ -42,8 +43,10 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
 
     private val getContent = registerForActivityResult(ActivityResultContracts.GetContent())
     { uri ->
-        if (uri != null)
-            viewModel.changeImageURI(uri.toString())
+        if (uri == null)
+            return@registerForActivityResult
+        viewModel.changeImageURI(uri.toString())
+        requireContext().contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
 
     override fun initViews() {
@@ -53,7 +56,7 @@ class EditingFragment : BaseFragment<FragmentEditingBinding, EditingScreenViewMo
                 onDeleteIngredientClick = viewModel::deleteIngredient
             )
             loadedImageView.setOnClickListener {
-                if (viewModel.editingCocktail.value?.imageUri == "")
+                if (!viewModel.editingCocktail.value?.imageUri.isNullOrBlank())
                     getImageFromGallery()
                 else
                     showImageChangingDialog()
