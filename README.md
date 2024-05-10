@@ -7,7 +7,7 @@
 * Отображение списка сохраненных рецептов коктейлей;
 * Отображение детальной информации о каждом рецепте;
 * Добавление, редактирование и удаление рецептов коктейлей;
-* Возможность загрузки и прикрепления изображений к рецепту;
+* Прикрепления к рецепту изображения из галереи;
 * Возможность поделиться рецептами с друзьями с помощью мессенджеров.
 
 ### Скриншоты:
@@ -24,19 +24,19 @@
 ### Скринкасты:
 <details><summary>Добавление коктейля</summary>
 <br>
-  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/faf3ec12-6734-4ee9-93ff-fb8be9a82b1c' width=200 />
+  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/f14d06a6-556e-48b6-a8a0-dedb9424a068' width=200 />
 </details>
 <details><summary>Редактирование коктейля</summary>
 <br>
-  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/6c4842d2-85c3-45c7-a541-72cccc44c73d' width=200 />
+  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/307b062d-cfed-4d3c-adf1-6c98346cba99' width=200 />
 </details>
 <details><summary>Удаление коктейля</summary>
 <br>
-  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/9955b40b-b9a2-474e-9999-6c83a8519ad7' width=200 />
+  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/9c841b8b-3086-4957-aed6-de7323e22856' width=200 />
 </details>
 <details><summary>Отправка сообщения в мессенджеры</summary>
 <br>
-  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/29073ea5-b588-4d6d-9c8c-6340ee77f737' width=200 />
+  <image src='https://github.com/arshapshap/surf-trainee-task/assets/48681339/74fbed56-9ca8-4e44-a72b-98c7da918287' width=200 />
 </details>
 
 ## Архитектура
